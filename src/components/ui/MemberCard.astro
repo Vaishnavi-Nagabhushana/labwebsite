@@ -1,0 +1,67 @@
+---
+interface Props {
+	name: string
+	role: string
+	startDate?: string
+	imageSrc?: string
+	description?: string
+	email?: string
+	website?: string
+	presentAffiliation?: string
+	compact?: boolean
+}
+
+const {
+	name,
+	role,
+	startDate,
+	imageSrc,
+	description,
+	email,
+	website,
+	presentAffiliation,
+	compact = false,
+} = Astro.props
+---
+
+{
+	compact ? (
+		<div class='card bg-base-200'>
+			<div class='card-body p-4'>
+				<h3 class='font-semibold'>{name}</h3>
+				<p class='text-sm text-base-content/70'>{role}</p>
+				{presentAffiliation && <p class='text-sm italic'>{presentAffiliation}</p>}
+			</div>
+		</div>
+	) : (
+		<div class='card bg-base-200'>
+			<div class='card-body'>
+				<div class='flex items-center gap-6'>
+					{imageSrc && (
+						<img src={imageSrc} alt={name} class='w-28 h-28 rounded-lg object-cover shadow shrink-0' />
+					)}
+					<div>
+						<h3 class='card-title text-xl'>{name}</h3>
+						<p class='text-sm text-base-content/70'>
+							{role}
+							{startDate && ` • Joined ${startDate}`}
+						</p>
+						<div class='mt-2 flex flex-wrap gap-4 text-sm'>
+							{email && (
+								<a href={`mailto:${email}`} class='text-accent hover:underline'>
+									{email}
+								</a>
+							)}
+							{website && (
+								<a href={website} target='_blank' rel='noopener noreferrer' class='text-accent hover:underline'>
+									Website
+								</a>
+							)}
+						</div>
+					</div>
+				</div>
+				{description && <p class='mt-4 whitespace-pre-line text-sm leading-relaxed'>{description}</p>}
+			</div>
+		</div>
+	)
+}

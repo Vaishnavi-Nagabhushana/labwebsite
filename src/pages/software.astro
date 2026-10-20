@@ -1,0 +1,83 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import publicationsData from '@/data/Ayon_borthakur.json'
+
+const patentYears = Array.from(
+	new Set(publicationsData.filter((pub) => pub.type === 'Patent').map((pub) => pub.year)),
+).sort((a, b) => b - a)
+---
+
+<Layout title='Software & Patents • SustainAI Lab'>
+	<!-- Software -->
+	<section class='mb-12'>
+		<h1 class='text-3xl font-bold mb-8'>Sapicore: A PyTorch-based Framework for Neuromorphic Modeling</h1>
+		<div class='card bg-base-200'>
+			<div class='card-body'>
+				<p class='font-semibold mb-2'>Author:</p>
+				<p class='mb-4'>Matthew Einhorn, Ayon Borthakur, Thomas Cleland</p>
+				<p class='leading-relaxed mb-6'>
+					Sapicore was developed as a project of the Computational Physiology Laboratory at Cornell
+					University. It is a framework that provides high-level abstractions to help write neuromorphic
+					models using PyTorch. Sapicore itself does not contain any concrete models; instead, each model may
+					have its own repository that implements the Sapicore components used by the model.
+				</p>
+				<div class='card-actions'>
+					<a
+						href='https://cplab.github.io/sapicore/index.html'
+						target='_blank'
+						rel='noopener noreferrer'
+						class='btn btn-sm btn-secondary text-secondary-content'
+					>
+						Official Sapicore Website
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Patents -->
+	<section class='mt-12'>
+		<h2 class='text-2xl font-bold mb-6'>Patents</h2>
+		{
+			patentYears.map((year) => (
+				<div class='mb-8'>
+					<h3 class='text-xl font-semibold mb-4'>{year}</h3>
+					<div class='space-y-6'>
+						{publicationsData
+							.filter((pub) => pub.year === year && pub.type === 'Patent')
+							.map((patent) => (
+								<div class='card bg-base-200'>
+									<div class='card-body'>
+										<h4 class='card-title text-lg'>
+											<a
+												href={patent.citation_url}
+												target='_blank'
+												rel='noopener noreferrer'
+												class='hover:text-accent'
+											>
+												{patent.title}
+											</a>
+										</h4>
+										<p class='italic text-base-content/80'>{patent.authors.join(', ')}</p>
+										<p class='text-sm text-base-content/70'>{patent.source}</p>
+										{patent.cites_url && (
+											<div class='card-actions justify-end mt-2'>
+												<a
+													href={patent.cites_url}
+													target='_blank'
+													rel='noopener noreferrer'
+													class='btn btn-sm btn-secondary text-secondary-content'
+												>
+													Citations
+												</a>
+											</div>
+										)}
+									</div>
+								</div>
+							))}
+					</div>
+				</div>
+			))
+		}
+	</section>
+</Layout>

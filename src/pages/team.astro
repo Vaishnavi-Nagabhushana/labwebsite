@@ -1,0 +1,89 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import MemberCard from '@/components/ui/MemberCard.astro'
+---
+
+<Layout title='Our Team • SustainAI Lab'>
+	<!-- Research Scholars -->
+	<section class='mb-12'>
+		<h1 class='text-3xl font-bold mb-8'>Research Scholars</h1>
+		<div class='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+			<MemberCard
+				name='Manash Pratim Pathak'
+				role='Research Scholar'
+				startDate='Oct 2026'
+				imageSrc='/manas.jpeg',
+				description={'I’m Manash, moving from electrical circuits to full-stack code, and finally to the frontier of AI. I love exploring how raw zeros, ones, and data can be wired together to mimic complex thought. While I lean toward LLMs, efficient systems and AI safety, I’m fundamentally open to chasing whatever sparks my curiosity. Away from the screen, you’ll usually find me banging tables over a game on Lichess, reading biographies, catching up on anime, or letting a philosophy podcast drift into the background of a slow day.'}
+				email='manashpathak@iitg.ac.in'
+				website='https://manashweb.vercel.app/'
+			/>
+
+
+
+			<MemberCard
+				name='Kalyani Prashant Kolte'
+				role='Research Scholar (Co-Supervised by Dr. Shyamanta M Hazarika)'
+				startDate='Oct 2025'
+				imageSrc='/kalyani.png'
+				description={`"The unknown isn't a risk, it's an invitation"
+				Hi, I’m Kalyani, fascinated by how we can make machines think smarter with less crafting lightweight, memory- and hardware-efficient algorithms that do more with fewer bits, bytes, and watts.
+				Code feels like a playground to me where logic, math, and creativity collide, and something new always emerges from the chaos.
+				When I’m not chasing efficiency curves, you’ll probably find me chasing rebounds on the basketball court, because both research and basketball are about timing, precision, and not giving up after a few missed shots.`}
+				email='k.kalyani@iitg.ac.in'
+			/>
+			<MemberCard
+				name='Gourish Majumdar'
+				role='Research Scholar'
+				startDate='Oct 2025'
+				imageSrc='/Gourish.jpg'
+				description={`Hi there! I’m Gourish Majumdar, currently exploring the fascinating world of deep learning — from physics-inspired models that borrow wisdom from nature’s equations to questions of privacy and security in modern AI systems.
+				I come from a physics background, where you spend years chasing constants of nature — and now I’m in deep learning, where even the loss function can’t stay constant for five epochs.
+				Somewhere between conserved quantities and exploding gradients lies my comfort zone.
+				When I’m not pondering over gradients or loss functions, you’ll probably find me reading random science facts, watching movies, or getting lost in music. Still figuring things out — both in research and in life!`}
+				email='m.gourish@iitg.ac.in'
+				website='https://www.linkedin.com/in/gourish-majumdar-b378a6341/'
+			/>
+			<MemberCard
+				name='Vaishnavi Nagabhushana'
+				role='Research Scholar'
+				startDate='Aug 2024'
+				imageSrc='/Vaishnavi.jpg'
+				description={`Hey there! I’m Vaishnavi N , I explore the fascinating intersection of brains and machines — building systems that not only think but adapt.
+				My work focuses on neuro-inspired AI, computer vision, TinyML, and continual learning — shaping AI that evolves like we do.
+				When I'm not training machines to be a little more human, you’ll find me painting walls into stories or swimming my way through ideas.`}
+				email='n.vaishnavi@iitg.ac.in'
+				website='https://vaishnavin.pages.dev/'
+			/>
+			<MemberCard
+				name='Kartikay Agrawal'
+				role='Research Scholar'
+				startDate='Jan 2024'
+				imageSrc='/Kartikay.png'
+				description={`“Curiosity kills a cat, not a Research Scholar”
+				I am Kartikay, I like diving into understanding brain mechanisms and translating them into neuroscience-inspired, efficient ML algorithms.
+				After all, what’s an algorithm without math standing over it with a stick, demanding it confess its crimes?
+				When I’m not wrangling data or debugging code, you’ll probably find me in an amphitheatre or a stage (probably with my guitar).
+				Basically, I try to balance logic with a little bit of drama.`}
+				email='a.kartikay@iitg.ac.in'
+				website='https://www.linkedin.com/in/kartikayagrawal/'
+			/>
+		</div>
+	</section>
+
+	<!-- Alumni -->
+	<section class='mb-12'>
+		<h2 class='text-2xl font-bold mb-6'>Alumni</h2>
+		<div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+			<MemberCard name='Prakhar Shankar' role='Master Student (Cosupervised)' presentAffiliation='Indus Insights' compact />
+			<MemberCard name='Anjali Jaiswal' role='Masters (Cosupervised)' presentAffiliation='Tata Electronics' compact />
+			<MemberCard name='Tanurima Halder' role='Masters (Cosupervised)' presentAffiliation='IIT Bombay' compact />
+			<MemberCard name='Aditya Gupta' role='B-Tech' presentAffiliation='MS Student, Carnegie Mellon University' compact />
+			<MemberCard name='Pokala Rithuraj' role='B-Tech' presentAffiliation='Tata Electronics' compact />
+			<MemberCard name='Pushkal Mishra' role='B-Tech' presentAffiliation='PhD student, University of California-San Diego' compact />
+			<MemberCard name='Aditya Somasundaram' role='B-Tech' presentAffiliation='MS Student, Columbia University' compact />
+			<MemberCard name='Ameya Chatur' role='B-Tech' presentAffiliation='MS Student, Johns Hopkins University' compact />
+			<MemberCard name='Syed Saqib Habeeb' role='B-Tech' presentAffiliation='MS Student, Rice University' compact />
+			<MemberCard name='Venkata Raghav Ambati' role='B-Tech' presentAffiliation='AI/ML Engineer, Realpage' compact />
+		</div>
+	</section>
+</Layout>

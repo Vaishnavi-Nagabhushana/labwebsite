@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { newsItems, mediaCoverage } from '@/data/news'
+---
+
+<Layout title='News & Outreach • SustainAI Lab'>
+	<!-- Media Coverage Section -->
+	<section class='mb-12'>
+		<h1 class='text-3xl font-bold mb-8'>Media Coverage &amp; Outreach</h1>
+		<ul class='list-disc list-inside space-y-3'>
+			{
+				mediaCoverage.map(({ text, link }) => (
+					<li>
+						{link ? (
+							<a href={link} target='_blank' rel='noopener noreferrer' class='text-accent hover:underline'>
+								{text}
+							</a>
+						) : (
+							<span>{text}</span>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<!-- News Section -->
+	<section>
+		<h2 class='text-2xl font-bold mb-6'>Lab News</h2>
+		<div class='space-y-6'>
+			{
+				newsItems.map(({ date, description }) => (
+					<div class='card bg-base-200'>
+						<div class='card-body p-6'>
+							<p class='text-sm text-accent font-medium mb-1'>{date}</p>
+							<p class='text-sm'>{description}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</section>
+</Layout>

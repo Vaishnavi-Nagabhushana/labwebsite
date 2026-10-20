@@ -1,52 +1,67 @@
 ---
 import { Image } from 'astro:assets'
 import {profile} from '../../settings'
+import LabLogo from '@/assets/sustainai-logo.jpg'
 import SocialIcons from './SocialIcons.astro'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
-import { getCollection } from 'astro:content'
+import ThemeSelector from './ThemeSelector.astro'
 import { template } from '@/settings'
 
-const isBlogPopulated = await getCollection('blog').then(collection => collection.length > 0)
+const {fullName} = profile
 
-const {fullName, title} = profile
+const navLinks = [
+	{ text: 'Home', href: '/' },
+	{ text: 'About', href: '/about' },
+	{ text: 'Publications', href: '/publications' },
+	{ text: 'Team', href: '/team' },
+	{ text: 'Software & Patents', href: '/software' },
+	{ text: 'Teaching', href: '/teaching' },
+	{ text: 'News', href: '/news' },
+]
 ---
-<aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
->
-	<div class='flex flex-col my-8 justify-between h-full'>
-		<div>
-			<div class='flex justify-center items-center flex-col'>
-				<Image
-					class='mask mask-circle size-44'
-					src={ProfilePictures}
-					alt={`Profile picture of ${fullName}`}
-				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">{title} <span>{fullName}</span></h1>
-			</div>
-			<div class='mx-4 mt-16'>
-				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
-					<li>
-                        <a href={`${template.base}/`} class='text-lg'>Home</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/research`} class='text-lg'>Research</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/papers`} class='text-lg'>Papers</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/cv`} class='text-lg'>CV</a>
-                    </li>
-                    {isBlogPopulated &&
-					<li>
-                        <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
-</li>
-                    }
+<header class='sticky top-0 z-50 bg-base-200 text-base-content shadow-sm'>
+	<nav class='navbar px-4'>
+		<div class='flex flex-1 items-center gap-3'>
+			<div class='dropdown'>
+				<label tabindex='0' class='btn btn-square btn-ghost lg:hidden'>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 24 24'
+						stroke-width='1.5'
+						class='size-6 stroke-current'
+					>
+						<path
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+					</svg>
+				</label>
+				<ul
+					tabindex='0'
+					class='menu menu-md dropdown-content mt-3 z-[60] p-2 shadow bg-base-200 rounded-box w-56'
+				>
+					{navLinks.map(({ text, href }) => (
+						<li><a href={`${template.base}${href}`}>{text}</a></li>
+					))}
 				</ul>
 			</div>
+			<a href={`${template.base}/`} class='flex items-center gap-3'>
+				<Image
+					class='size-8 rounded-full'
+					src={LabLogo}
+					alt={`Logo of ${fullName}`}
+				/>
+				<span class='text-lg font-black hidden sm:block'>{fullName}</span>
+			</a>
+			<ul class='menu menu-horizontal px-1 hidden lg:flex'>
+				{navLinks.map(({ text, href }) => (
+					<li><a href={`${template.base}${href}`} class='text-base'>{text}</a></li>
+				))}
+			</ul>
 		</div>
-		<div class='mx-4'>
-			<SocialIcons/>
+		<div class='flex items-center gap-2 sm:gap-3 ml-8'>
+			<SocialIcons />
+			<ThemeSelector />
 		</div>
-	</div>
-</aside>
+	</nav>
+</header>

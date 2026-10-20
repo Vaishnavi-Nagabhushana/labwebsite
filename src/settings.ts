@@ -7,24 +7,53 @@ interface Profile {
 }
 
 export const profile: Profile = {
-	fullName: 'Your Name',
+	fullName: 'SustainAI Lab',
 	title: '',
-	institute: '',
-	author_name: '', // Author name to be highlighted in the papers section
+	institute: 'Mehta Family School of DS & AI, IIT Guwahati',
+	author_name: 'A Borthakur', // Author name to be highlighted in the papers section
 	research_areas: [
-		// { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+		{
+			title: 'Embedded AI systems / Edge AI / TinyML',
+			description:
+				'Real-time AI systems that run efficiently on low-power edge and embedded devices.',
+			field: 'engineering',
+		},
+		{
+			title: 'Deep learning',
+			description:
+				'Data-driven models for vision, language, and sensory processing.',
+			field: 'computer-science',
+		},
+		{
+			title: 'Neuromorphic computing & engineering',
+			description:
+				'Brain-inspired algorithms and hardware for energy-efficient computation.',
+			field: 'engineering',
+		},
+		{
+			title: 'Human & Environment Friendly AI',
+			description:
+				'Sustainable AI that is optimal for both humans and the environment.',
+			field: 'computer-science',
+		},
+		{
+			title: 'Neuroscience',
+			description:
+				'Understanding biological intelligence to inspire better machine learning.',
+			field: 'biology',
+		},
 	],
 }
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-	email: '',
+	email: 'ayon.borthakur@iitg.ac.in',
 	linkedin: '',
-	x: 'https://www.x.com/',
+	x: '',
 	bluesky: '',
 	github: '',
 	gitlab: '',
-	scholar: '',
+	scholar: 'https://scholar.google.com/citations?hl=en&user=6msVyocAAAAJ',
 	inspire: '',
 	arxiv: '',
 	orcid: '',
@@ -32,9 +61,8 @@ export const social = {
 
 export const template = {
 	website_url: 'https://localhost:4321', // Astro needs to know your site’s deployed URL to generate a sitemap. It must start with http:// or https://
-	menu_left: false,
 	transitions: true,
-	lightTheme: 'light', // Select one of the Daisy UI Themes or create your own
+	lightTheme: 'sustainlight', // Select one of the Daisy UI Themes or create your own
 	darkTheme: 'dark', // Select one of the Daisy UI Themes or create your own
 	excerptLength: 200,
 	postPerPage: 5,
@@ -42,7 +70,8 @@ export const template = {
 }
 
 export const seo = {
-	default_title: 'Astro Academia',
-	default_description: 'Astro Academia is a template for academic websites.',
-	default_image: '/images/astro-academia.png',
+	default_title: 'SustainAI Lab',
+	default_description:
+		'We are a research lab at IIT Guwahati led by Dr. Ayon Borthakur, focusing on sustainable AI, data-driven decision-making, and interdisciplinary research at the intersection of technology and society.',
+	default_image: '/lab_banner.png',
 }

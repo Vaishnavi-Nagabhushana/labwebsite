@@ -2,36 +2,83 @@
 import Layout from '../layouts/Layout.astro'
 
 import { profile } from '@/settings'
-import { publications } from '@/data/cv'
-import ProfilePictures from '@/assets/profile_pictures.jpg'
-import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
+import { newsItems, mediaCoverage } from '@/data/news'
 
-const { fullName, title, institute, research_areas } = profile
+const { research_areas } = profile
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const latestNews = newsItems.slice(0, 5)
+const featuredMedia = mediaCoverage.slice(0, 3)
 ---
 
 <Layout>
-	<!-- Hero Section -->
-	<section class='flex items-center gap-12 border-b pb-12'>
-		<Hero
-			fullName={fullName}
-			title={title}
-			institute={institute}
-			profilePicture={ProfilePictures}
-		/>
+	<!-- Banner -->
+	<section class='flex justify-center pb-12'>
+		<img src='/lab_banner.png' alt='SustainAI Lab' class='block max-h-[350px] w-auto object-contain' />
+	</section>
+
+	<!-- Welcome Section -->
+	<section class='pb-12'>
+		<h1 class='text-3xl font-bold mb-6 text-center'>স্বাগতম, Welkom, Welcome!</h1>
+		<p class='leading-relaxed text-justify'>
+			The Sustainable AI (SustainAI) Lab is led by <strong>Dr. Ayon Borthakur (ড° অয়ন বৰঠাকুৰ)</strong>,
+			Assistant Professor at the Mehta Family School of Data Science &amp; Artificial Intelligence, IIT
+			Guwahati. In our SustainAI Lab, we are dedicated to building real time AI systems which are optimal
+			for both human &amp; environment. As part of it, we conduct interdisciplinary research on deep
+			learning, neuroscience, neuromorphic computing &amp; engineering as well as embedded AI systems.
+		</p>
+	</section>
+
+	<!-- Featured Media Coverage -->
+	<section class='pb-12'>
+		<h2 class='text-3xl font-bold mb-8'>Media Highlights</h2>
+		<ul class='list-disc list-inside space-y-2'>
+			{
+				featuredMedia.map(({ text, link }) => (
+					<li>
+						<a href={link} target='_blank' rel='noopener noreferrer' class='text-accent hover:underline'>
+							{text}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<div class='mt-4'>
+			<a href='/news' class='text-accent hover:underline'>... see all media</a>
+		</div>
+	</section>
+
+	<!-- Latest News -->
+	<section class='pb-12'>
+		<h2 class='text-3xl font-bold mb-8'>Lab News</h2>
+		<ul class='space-y-3'>
+			{
+				latestNews.map(({ date, description }) => (
+					<li>
+						<span class='text-accent font-medium'>{date}</span> — {description}
+					</li>
+				))
+			}
+		</ul>
+		<div class='mt-4'>
+			<a href='/news' class='text-accent hover:underline'>... see all news</a>
+		</div>
+	</section>
+
+	<!-- Openings -->
+	<section class='pb-12'>
+		<h2 class='text-3xl font-bold mb-8'>Openings</h2>
+		<p class='leading-relaxed text-justify'>
+			We are looking for multiple motivated collaborators to help design next generation AI. If you are
+			open towards working on Deep Learning, Edge AI for Vision/NLP/Tactile/Smell/Radar, Neuromorphic
+			Computing or Human &amp; Environment Friendly AI, feel free to shoot an email to Ayon.
+		</p>
 	</section>
 
 	<!-- Research Areas -->
-	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
-	</section>
-
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
+	<section class='pb-12'>
+		<h2 class='text-3xl font-bold mb-8'>Research Areas</h2>
+		<div class='flex flex-wrap gap-3'>
+			{research_areas.map((area) => <span class='badge badge-outline badge-lg p-4'>{area.title}</span>)}
+		</div>
 	</section>
 </Layout>

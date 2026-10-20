@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { social } from '@/settings'
+---
+
+<Layout title='About • SustainAI Lab' description='About Dr. Ayon Borthakur'>
+	<!-- Profile Header -->
+	<section class='border-b pb-12'>
+		<div class='flex flex-col md:flex-row items-start gap-6'>
+			<img src='/AyonBorthakur.jpg' alt='Dr. Ayon Borthakur' class='w-40 h-52 object-cover rounded-md shadow' />
+			<div>
+				<h1 class='text-3xl font-bold mb-4'>Dr. Ayon Borthakur</h1>
+				<p class='leading-relaxed text-justify'>
+					I am an <strong>Assistant Professor</strong> at the
+					<strong> Mehta Family School of Data Science and Artificial Intelligence</strong>, IIT
+					Guwahati. I am broadly interested in Artificial Intelligence that is both human and environment
+					friendly (Sustainable AI). Towards that goal, presently I have been conducting research at the
+					intersection of deep learning and neuroscience, as well as neuromorphic systems.
+				</p>
+				<div class='flex gap-4 mt-4'>
+					<a href={`mailto:${social.email}`} class='text-accent hover:underline'>Email</a>
+					<a href={social.scholar} target='_blank' rel='noopener noreferrer' class='text-accent hover:underline'>
+						Google Scholar
+					</a>
+					<a href='https://www.researchgate.net/...' target='_blank' rel='noopener noreferrer' class='text-accent hover:underline'>
+						ResearchGate
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Career Timeline -->
+	<section class='py-12 border-b'>
+		<h2 class='text-2xl font-bold mb-6'>Career Timeline</h2>
+		<ul class='list-disc list-inside space-y-2'>
+			<li><strong>2023 – present:</strong> Assistant Professor, MFSDS&amp;AI, IIT Guwahati, India</li>
+			<li><strong>2022 – 2023:</strong> Assistant Professor, Dept. of AI, IIT Hyderabad, India</li>
+			<li><strong>2021 – 2022:</strong> Senior Neuromorphic Engineer, Innatera Nanosystems, The Netherlands</li>
+			<li>
+				<strong>2021:</strong> Ph.D., Artificial Intelligence (Comp. Bio.), Cornell University, USA<br />
+				<em>Thesis committee:</em> Prof. Thomas Cleland (Chair), Prof. Thorsten Joachims, Prof. David Field,
+				Prof. Alyosha Molnar, Prof. David Smith
+			</li>
+			<li>
+				<strong>2013 – 2014:</strong> Research Assistant, Centre for Neuroscience, IISc Bengaluru, India (with
+				Prof. Supratim Ray)
+			</li>
+			<li>
+				<strong>2012:</strong> Intern, ETH Zurich &amp; Univ. of Zurich, Switzerland (with Prof. Giacomo Indiveri
+				&amp; Dr. Sadique Sheik)
+			</li>
+			<li><strong>2013:</strong> B.Tech, Electrical Engineering, IIT Dhanbad</li>
+		</ul>
+	</section>
+
+	<!-- Grants -->
+	<section class='py-12 border-b'>
+		<h2 class='text-2xl font-bold mb-6'>Grants</h2>
+		<ul class='list-disc list-inside space-y-1'>
+			<li>IIT Guwahati SUG (2025)</li>
+			<li>IIT Hyderabad SUG (2023)</li>
+			<li>Intel Neuromorphic Community faculty grant (2018)</li>
+			<li>Cornell University conference travel grants (2014, 2016, 2017, 2019)</li>
+			<li>Cornell University Sage Fellowship (2014)</li>
+		</ul>
+	</section>
+
+	<!-- Workshops -->
+	<section class='py-12'>
+		<h2 class='text-2xl font-bold mb-6'>Workshops</h2>
+		<ul class='list-disc list-inside space-y-1'>
+			<li>Keynote speaker — 1st Int’l Workshop on Sustainable AI for Edge (SAI4E), AIMLSys Bengaluru (2023)</li>
+			<li>Telluride neuromorphic cognition engineering workshop, USA (2019)</li>
+			<li>Intel Neuromorphic Community Research Workshop, Reykjavik (2018)</li>
+			<li>U-wide GET SET Teaching Conference, Cornell (2015)</li>
+			<li>Berkeley summer course on mining &amp; modeling neural data, USA (2015)</li>
+			<li>Bangalore cognition workshop, IISc Bengaluru (2013)</li>
+		</ul>
+	</section>
+</Layout>
